@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="index.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="images/DALL·E 2025-02-08 17.51.35 - A simple and clean favicon of a book icon, featuring an open book with pages visible, using minimal colors like white and blue or black for contrast, .webp" type="image/x-icon">
+
+
+</head>
+<body>
+    
+    <header class="header">
+        <h1>Bookshelf</h1>
+        <p>Explore nosso catálogo e mergulhe em histórias incríveis.</p>
+    </header>
+    <hr>
+<main class="main">
+
+    <section class="section01">
+
+        <h2>Leia qualquer hora, em qualquer lugar</h2>
+        <p>Aproveite o acesso instantâneo a uma ampla variedade de livros em seu dispositivo favorito</p>
+        <input type="text" class="search-input" placeholder="Buscar livros..." > 
+        <button id="search-btn" class="search-btn"><span class="material-icons">search</span></button>
+    </section>
+        
+    <section class="sectionimg">
+        <img src="../src/styles/img/2.png" alt="imagem de leitura">
+    </section>
+
+    <section class="sectionnav">
+        <h2>Explore Nosso Catálogo</h2>
+        <P>Descubra milhares de livros de diversos gêneros,do romance a ficçâo cientifica.</p>
+
+        <nav class="nav">
+            <ul>
+                <li><a href="./pages/romance.html" target="_blank">Romance</a></li>
+                <li><a href="./pages/ficcao.html">Ficção científica</a></li>
+                <li><a href="./pages/misterio.html">Mistério</a></li>
+                <li><a href="./pages/fantasia.html">Fantasia</a></li>
+                <li><a href="./pages/suspense.html">Suspense</a></li>
+        
+                
+            </ul>
+        </nav>
+    </section>
+
+    <div class="inscreva-se">
+        <h2>Inscreva-se para receber novidades e recomendações!</h2>
+        <p>Fique por dentro dos novos lançamentos, promoções e muito mais!</p>
+        <form action="#" method="POST" class="form-inscricao">
+            <input type="email" placeholder="Digite seu e-mail" required>
+            <button type="button" id="btn-inscrever">Inscrever-se</button>
+        </form>
+    </div>
+    
+    <!-- Pop-up de Inscrição -->
+    <div class="popup" id="popup-inscricao">
+        <div class="popup-conteudo">
+            <h3>Quase lá!</h3>
+            <p>Preencha as informações abaixo para completar sua inscrição:</p>
+            <form id="form-popup">
+                <input type="text" id="nome" placeholder="Seu nome" required>
+                <input type="tel" id="telefone" placeholder="Seu telefone" required>
+                <button type="submit">Enviar</button>
+            </form>
+            <button class="fechar-popup" id="fechar-popup">Fechar</button>
+        </div>
+    </div>
+    
+
+</main>
+
+
+    <footer class="footer">
+        <p>&copy; 2024 Bookshelf</p>
+    </footer>
+
+</body>
+</html>

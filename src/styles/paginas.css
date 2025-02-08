@@ -1,0 +1,206 @@
+/* Importando fonte do Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+
+/* Tela de Carregamento */
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    z-index: 9999;
+    text-align: center;
+  }
+  
+  /* Animação do Spinner */
+  .spinner {
+    border: 8px solid rgba(255, 255, 255, 0.3);
+    border-top: 8px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Animação de rotação */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  /* Esconder conteúdo até o carregamento */
+  .content {
+    display: none;
+  }
+  
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, rgba(9, 9, 9, 0.7), rgba(3, 13, 50, 0.23)); /* Gradiente suave e romântico */
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 3em auto;
+}
+
+.titulo-genero {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 1.5em;
+  font-family: 'Georgia', serif;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  text-shadow: 3px 3px 10px rgba(231, 35, 35, 0.3); /* Efeito de texto destacado */
+}
+
+.voltar {
+  font-size: 1.4rem;
+  color: #fff;
+  text-decoration: none;
+  background-color: #000000;
+  padding: 12px 24px;
+  border-radius: 25px;
+  margin-bottom: 3em;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.voltar:hover {
+  background-color: #49ded9;
+  transform: translateY(-5px); /* Efeito de "flutuação" */
+}
+
+.livros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 3em;
+}
+
+.livro {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  overflow: hidden; /* Esconde a parte de fora do livro */
+  position: relative;
+}
+
+.livro:hover {
+  transform: translateY(-10px); /* Levanta o cartão do livro */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.livro img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.livro img:hover {
+  transform: scale(1.1); /* Aumenta a imagem do livro no hover */
+}
+
+.livro h3 {
+  font-size: 1.5em;
+  color: #f9f0f0;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+.autor {
+  font-size: 1.1rem;
+  color: #d3d3d3;
+  margin-top: 10px;
+}
+
+.descricao {
+  font-size: 1rem;
+  color: #d3d3d3;
+  margin-top: 10px;
+  line-height: 1.6;
+  max-height: 100px;
+  overflow: hidden;
+}
+
+.botao-vermais {
+  display: inline-block;
+  background-color: #3c6563;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border-radius: 30px;
+  text-decoration: none;
+  margin-top: 20px;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.botao-vermais::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #49ded9;
+  border-radius: 30px;
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+.botao-vermais:hover {
+  background-color: #f9f9f9;
+  color: #000;
+  transform: scale(1.05);
+}
+
+.botao-vermais:hover::before {
+  transform: scale(1.1);
+}
+
+.sectionnav {
+  text-align: center;
+}
+
+.sectionnav .botao-vermais {
+  margin-top: 30px;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .titulo-genero {
+    font-size: 2.2rem;
+  }
+
+  .livros-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .livro {
+    padding: 15px;
+  }
+}
+
+/* Foco no botão para acessibilidade */
+.botao-vermais:focus, .voltar:focus {
+  outline: 3px solid #49ded9;
+  outline-offset: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
