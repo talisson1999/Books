@@ -37,7 +37,7 @@ Google Books API
 
 Clone este repositório:
 
-git clone https://github.com/talisson1999/seu-repositorio.git
+git clone https://talisson1999.github.io/Books/
 
 Acesse a pasta do projeto:
 
