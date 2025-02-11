@@ -85,11 +85,16 @@ function showPopup(title, description, author, image, popupId) {
             <button class="close-popup">Fechar</button>
         </div>
     `;
+
     popup.style.display = "block";
 
-    popup.querySelector('.close-popup').addEventListener('click', () => {
-        popup.style.display = "none";
-    });
+    // Certificar que o botão de fechar existe antes de adicionar o evento
+    const closeButton = popup.querySelector('.close-popup');
+    if (closeButton) {
+        closeButton.addEventListener('click', () => {
+            popup.style.display = "none";
+        });
+    }
 }
 
 // Manipulação correta do pop-up de inscrição
@@ -102,11 +107,15 @@ if (btnInscrever && popupInscricao) {
     btnInscrever.addEventListener("click", function () {
         popupInscricao.style.display = "flex";
     });
+}
 
+if (fecharPopupInscricao) {
     fecharPopupInscricao.addEventListener("click", function () {
         popupInscricao.style.display = "none";
     });
+}
 
+if (formPopup) {
     formPopup.addEventListener("submit", function (event) {
         event.preventDefault();
         const nome = document.getElementById("nome").value;

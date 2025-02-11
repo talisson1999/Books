@@ -1,76 +1,66 @@
-/* Tela de carregamento */
-.loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    z-index: 9999;
-}
-
-.content {
-    display: none;
-}
-
-
+/* Reset global */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Corpo da página */
 body {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     background-color: rgb(194, 185, 177);
     color: #333;
+    padding: 0 10px; /* Espaçamento nas laterais para evitar que os elementos grudem nas bordas */
 }
 
+/* Estilo do cabeçalho */
 .header {
     padding: 2em 1em;
 }
 
 .header h1 {
     font-size: 2.5em;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 0.3em; 
+    margin-bottom: 0.3em;
 }
 
+.header p {
+    font-size: 1.2em;
+}
+
+/* Estilo do conteúdo principal */
 .main {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     line-height: 2em;
-    font-size: clamp(0.9, 2vw, 1.1em);
+    font-size: clamp(1em, 4vw, 1.2em); /* Melhorando o ajuste de fontes */
 }
 
+/* Seções */
 .section01 {
     margin: 1em;
 }
 
+/* Campo de busca */
 .search-container {
     display: flex;
-    align-items: center;
-    gap: 15px;
-    margin: 0em auto;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* Permite que o campo de busca ocupe toda a largura no mobile */
 }
 
 .search-input {
-    width: 250px;
+    width: 80%;
+    max-width: 300px; /* Limita a largura do campo de busca */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 1em;
     text-align: center;
-    
 }
 
 .search-btn {
     background-color: rgb(194, 185, 177);
-    padding: 10px ;
+    padding: 10px;
     border: none;
     border-radius: 90px;
     cursor: pointer;
@@ -82,87 +72,71 @@ body {
     transform: scale(1.05);
 }
 
-/* Popup */
+/* Imagens responsivas */
+
+    .sectionimg img {
+        display: block;
+        max-width: clamp(200px, 50%, 600px);
+        height: auto;
+        margin: 1em auto;
+    }
+    
+
+    /* Estilização do pop-up de busca */
 .popup {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
+    width: 90%;
+    max-width: 400px;
+    background: white;
     padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
-    text-align: center;
-    max-width: auto;
-    
     z-index: 1000;
     display: none;
 }
 
-.popup .popup-content {
+.popup-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-family: 'Roboto', sans-serif;
-
+    text-align: center;
 }
 
-.book-image {
-    max-width: 100px;
-    margin-bottom: 1em;
+.popup-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
 }
 
-.popup h3 {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-}
-
-.popup p {
-    font-size: 1em;
-    margin-bottom: 0.5em;
+.popup-content p {
+    max-height: 150px; /* Limite de altura */
+    overflow: auto; /* Rolagem caso necessário */
+    padding: 10px;
+    text-align: justify;
 }
 
 .close-popup {
-    background-color: rgb(247, 243, 243);
-    color: rgb(10, 10, 10);
-    padding: 8px 12px;
+    background: #ff4d4d;
+    color: white;
     border: none;
-    border-radius: 20px;
+    padding: 10px 15px;
+    font-size: 1em;
     cursor: pointer;
-    margin-top: 1em;
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background 0.3s ease;
 }
 
 .close-popup:hover {
-    background-color: rgb(87, 152, 201);
+    background: #cc0000;
 }
 
-/* Botões */
-.btn {
-    background-color: black;
-    color: white;
-    height: 35px;
-    width: 120px;
-    border-radius: 3em;
-    cursor: pointer;
-    margin: 1em;
-    border: none;
-    font-size: 1em;
-    transition: background-color 0.3s ease, transform o.2s ease;
-}
 
-.btn:hover {
-    background-color: rgb(87, 152, 201);
-    transform: scale(1.05);
-}
-
-.sectionimg img {
-    display: block;
-    max-width: clamp(200px, 50%, 600px);
-    height: auto;
-    margin: 1em auto;
-}
-
+/* Navegação */
 .sectionnav {
     margin: 2em;
 }
@@ -173,10 +147,9 @@ body {
 
 nav ul {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
-    padding: 0;
+    gap: 15px;
+    flex-wrap: wrap; /* Permite que os itens de navegação se ajustem em telas menores */
 }
 
 .nav li {
@@ -186,164 +159,171 @@ nav ul {
 .nav li a {
     padding: 12px 20px;
     font-size: 1em;
-    height: 35px;
-    width: 120px;
-    border-radius: 3em;
-    cursor: pointer;
-    margin: 1em;
     background-color: rgb(87, 152, 201);
     color: white;
+    border-radius: 3em;
     text-decoration: none;
-    transition: background-color 0.3s ease, transform o.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav li a:hover {
     background-color: black;
     transform: scale(1.05);
 }
+
+/* Seção de Inscrição */
 .inscreva-se {
-    background-color: rgb(194, 185, 177);
-    padding: 30px;
-    text-align: center;
-    color: rgb(3, 0, 0);
+    padding: 2em;
+    margin: 2em auto;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .inscreva-se h2 {
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 1em;
 }
 
 .inscreva-se p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #555;
+    margin-bottom: 1.5em;
 }
 
-/* Formulário dentro da área de Inscrição */
 .form-inscricao {
     display: flex;
-    justify-content: center;
-    margin-top: 20px;
-    
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
-.form-inscricao input[type="email"] {
-    padding: 12px;
-    width: 280px;
-    font-size: 1rem;
-    border: none;
+.form-inscricao input {
+    padding: 10px;
+    width: 80%; /* Ajustando para 80% da largura */
+    max-width: 300px; /* Limitação para evitar que fique largo demais */
+    border: 1px solid #ccc;
     border-radius: 5px;
-    margin-right: 10px;
-    background-color: #fdf8f8;
+    font-size: 1em;
     color: #333;
-    transition: border 0.3s ease;
 }
 
-.form-inscricao input[type="email"]:focus {
-    border: 2px solid #090003;
+.form-inscricao input:focus {
+    border-color: #87a6c5;
 }
 
 .form-inscricao button {
-    padding: 12px 20px;
-    font-size: 1rem;
-    background-color: #fff;
-    color: #040001;
+    padding: 10px 20px;
+    width: 80%; /* Ajuste no tamanho do botão */
+    max-width: 300px; /* Limitação para o botão */
+    background-color: rgb(87, 152, 201);
+    color: white;
+    font-size: 1em;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .form-inscricao button:hover {
-    background-color: rgb(194, 185, 177);
+    background-color: #090706;
     transform: scale(1.05);
 }
 
-.form-inscricao button:active {
-    background-color: #010001;
-    transform: scale(1);
-}
-
-/* Pop-up Inscrição */
-.popup-conteudo {
-    background-color: white;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    color: #333;
-}
-
-.popup-conteudo h3 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.popup-conteudo p {
-    font-size: 1rem;
-    margin-bottom: 20px;
+/* Pop-up de Inscrição */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: white;
+    z-index: 1000;
+    display: none;
 }
 
 .popup-conteudo input {
-    padding: 12px;
     width: 100%;
-    font-size: 1rem;
-    margin-bottom: 15px;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border: 1px solid #ddd;
+    font-size: 16px;
 }
 
 .popup-conteudo button {
-    padding: 12px 20px;
-    background-color: #4CAF50;
+    padding: 10px 20px;
+    background-color: rgb(87, 152, 201);
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .popup-conteudo button:hover {
-    background-color: #45a049;
+    background-color: #090706;
     transform: scale(1.05);
 }
 
-.popup-conteudo button:active {
-    background-color: #388e3c;
-    transform: scale(1);
-}
-
+/* Estilização do botão fechar */
 .fechar-popup {
-    background-color: rgb(194, 185, 177);
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+    top: 10px;
+    right: 15px;
+    background: none;
     border: none;
-    margin-top: 15px;
+    font-size: 18px;
+    cursor: pointer;
 }
 
-.fechar-popup:hover {
-    background-color: rgb(194, 185, 177);
+/* Estilização do footer */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 1em;
+    margin-top: 2em;
 }
 
-@media (max-width: 768px) {
-    .popup-conteudo {
-        width: 90%;
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 2em;
+    }
+
+    .header p {
+        font-size: 1.1em;
+    }
+
+    .section01, .sectionnav, .inscreva-se {
+        margin: 0 1em; /* Ajustando margens nas seções */
+    }
+
+    .form-inscricao input,
+    .form-inscricao button {
+        width: 100%; /* Campos de formulário ocupando 100% */
+    }
+
+    .search-input {
+        width: 100%;
+        margin-bottom: 15px; /* Espaço entre o campo de busca e o botão */
+    }
+
+    .nav ul {
+        flex-direction: column; /* Colocando os links de navegação na vertical */
+        gap: 10px;
+    }
+
+    .nav li a {
+        width: 100%;
+        padding: 10px;
     }
 }
-
-.footer {
-    margin-top: 2em;
-    background-color: black;
-    color: white;
-    padding: 1em;
-}
-
-
-
-
-
